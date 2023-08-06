@@ -103,7 +103,7 @@ class GamePresenter {
                 selectedLeft()
             } else if headEulerAngleY < -30 {
                 selectedRight()
-            } else if headEulerAngleZ < 70 && headEulerAngleZ > 20{
+            } else if headEulerAngleZ < 75 && headEulerAngleZ > 20{
                 selectedLeft()
             } else if headEulerAngleZ > 100 {
                 selectedRight()
