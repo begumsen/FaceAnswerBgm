@@ -1,7 +1,7 @@
-
 # FaceAnwer
 
 Welcome to the setup guide for the FaceAnswer which is a quiz app implemented using Google MLKit. Follow these steps to seamlessly integrate the feature into your Swift project, designed with SwiftUIKit and Storyboard for the user interface.
+IMPORTANT: To achieve accurate results, it's essential to have direct and consistent light on the face.
 
 
 ## Integrating GoogleMLKit
@@ -32,7 +32,7 @@ Run the below to install the Google ML Kit Face Detection dependency.
  ```bash
   pod install
 ```
-Important: From now on, always use the .xcworkspace file to open your project.
+IMPORTANT: From now on, always use the .xcworkspace file to open your project.
 
 
 
