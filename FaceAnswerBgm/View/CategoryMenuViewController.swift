@@ -15,6 +15,7 @@ class CategoryMenuViewController: UIViewController {
     
     lazy var presenter = CategoryMenuPresenter(with:self)
     
+    // To set the layout of the collection view
     let layout: UICollectionViewFlowLayout = {
       let layout = UICollectionViewFlowLayout()
       let insetLeft: CGFloat = 5.0
@@ -51,6 +52,7 @@ class CategoryMenuViewController: UIViewController {
 
 extension CategoryMenuViewController: CategoryView{
     
+    // Show the game screen with the selected category
     func showGameScreen(category: String) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let gameViewController = storyBoard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
@@ -80,6 +82,7 @@ extension CategoryMenuViewController: UICollectionViewDataSource, UICollectionVi
         return cell
     }
     
+    // Handle category selection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.categorySelected(index: indexPath.row)
     }
