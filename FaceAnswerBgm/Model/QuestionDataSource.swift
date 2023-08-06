@@ -9,7 +9,7 @@ import Foundation
 
 class QuestionDataSource {
     
-    let categories: [String] = ["Science", "Geography", "Pop Culture", "History", "Random"]
+    let categories: [String] = ["Science", "Geography", "PopCulture", "History", "Random"]
     
     let scienceQuestions: [QuestionModel] = [
         QuestionModel(category: "Science", questionText: "What is the chemical symbol for gold?", leftOption: "Go", rightOption: "Au", correctAnswerIndex: 1),
@@ -38,16 +38,16 @@ class QuestionDataSource {
     ]
 
     let popCultureQuestions: [QuestionModel] = [
-        QuestionModel(category: "Pop Culture", questionText: "Who played the role of Iron Man in the Marvel Cinematic Universe?", leftOption: "Chris Hemsworth", rightOption: "Robert Downey Jr.", correctAnswerIndex: 1),
-        QuestionModel(category: "Pop Culture", questionText: "Which singer's real name is Robyn Fenty?", leftOption: "Beyoncé", rightOption: "Rihanna", correctAnswerIndex: 1),
-        QuestionModel(category: "Pop Culture", questionText: "Who directed the movie 'Avatar'?", leftOption: "Steven Spielberg", rightOption: "James Cameron", correctAnswerIndex: 1),
-        QuestionModel(category: "Pop Culture", questionText: "Which fictional wizard is known for his lightning bolt scar?", leftOption: "Gandalf", rightOption: "Harry Potter", correctAnswerIndex: 1),
-        QuestionModel(category: "Pop Culture", questionText: "Which TV series is set in the fictional Seven Kingdoms of Westeros?", leftOption: "The Walking Dead", rightOption: "Game of Thrones", correctAnswerIndex: 1),
-        QuestionModel(category: "Pop Culture", questionText: "What is the highest-grossing film of all time?", leftOption: "Avatar", rightOption: "Avengers: Endgame", correctAnswerIndex: 1),
-        QuestionModel(category: "Pop Culture", questionText: "Which famous musician is known as the 'King of Pop'?", leftOption: "Elton John", rightOption: "Michael Jackson", correctAnswerIndex: 1),
-        QuestionModel(category: "Pop Culture", questionText: "Which actress portrayed Hermione Granger in the 'Harry Potter' film series?", leftOption: "Emma Watson", rightOption: "Keira Knightley", correctAnswerIndex: 0),
-        QuestionModel(category: "Pop Culture", questionText: "Who is the author of the 'Harry Potter' book series?", leftOption: "J.K. Rowling", rightOption: "George R.R. Martin", correctAnswerIndex: 0),
-        QuestionModel(category: "Pop Culture", questionText: "Which famous film franchise features characters like Luke Skywalker and Darth Vader?", leftOption: "Star Trek", rightOption: "Star Wars", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "Who played the role of Iron Man in the Marvel Cinematic Universe?", leftOption: "Chris Hemsworth", rightOption: "Robert Downey Jr.", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "Which singer's real name is Robyn Fenty?", leftOption: "Beyoncé", rightOption: "Rihanna", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "Who directed the movie 'Avatar'?", leftOption: "Steven Spielberg", rightOption: "James Cameron", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "Which fictional wizard is known for his lightning bolt scar?", leftOption: "Gandalf", rightOption: "Harry Potter", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "Which TV series is set in the fictional Seven Kingdoms of Westeros?", leftOption: "The Walking Dead", rightOption: "Game of Thrones", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "What is the highest-grossing film of all time?", leftOption: "Avatar", rightOption: "Avengers: Endgame", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "Which famous musician is known as the 'King of Pop'?", leftOption: "Elton John", rightOption: "Michael Jackson", correctAnswerIndex: 1),
+        QuestionModel(category: "PopCulture", questionText: "Which actress portrayed Hermione Granger in the 'Harry Potter' film series?", leftOption: "Emma Watson", rightOption: "Keira Knightley", correctAnswerIndex: 0),
+        QuestionModel(category: "PopCulture", questionText: "Who is the author of the 'Harry Potter' book series?", leftOption: "J.K. Rowling", rightOption: "George R.R. Martin", correctAnswerIndex: 0),
+        QuestionModel(category: "PopCulture", questionText: "Which famous film franchise features characters like Luke Skywalker and Darth Vader?", leftOption: "Star Trek", rightOption: "Star Wars", correctAnswerIndex: 1),
     ]
 
     let historyQuestions: [QuestionModel] = [
@@ -70,7 +70,7 @@ class QuestionDataSource {
         case "History":
             selectedQuestions = Array(historyQuestions.prefix(10))
             break
-        case "Pop Culture":
+        case "PopCulture":
             selectedQuestions = Array(popCultureQuestions.prefix(10))
             break
         case "Geography":

@@ -76,11 +76,14 @@ class GameViewController: UIViewController {
         cameraView.widthAnchor.constraint(equalToConstant: cameraViewWidth).isActive = true
         cameraView.heightAnchor.constraint(equalToConstant: cameraViewHeight).isActive = true
         cameraView.beginSession()
-
+        let circularOverlayWidth = cameraViewWidth * 0.8
+        let circularOverlayHeight = cameraViewHeight * 0.8
         circularOverlayView = CircularOverlayView(frame: CGRect(x: 0, y: 0, width: cameraViewWidth * 0.8, height: cameraViewHeight * 0.8))
-        circularOverlayView.center = GameView.center
-        circularOverlayView.backgroundColor = .clear
-        GameView.addSubview(circularOverlayView)
+                circularOverlayView.center = GameView.center
+                circularOverlayView.backgroundColor = .clear
+                GameView.addSubview(circularOverlayView)
+
+        
     }
     /*
     // MARK: - Navigation

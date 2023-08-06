@@ -24,7 +24,8 @@ class CategoryMenuViewController: UIViewController {
                                          bottom: 5.0,
                                          right: insetRight)
       let itemWidth = UIScreen.main.bounds.width / 2 - (insetLeft + insetRight)
-      layout.itemSize = CGSize(width: itemWidth, height: 300.0)
+      let itemHeight = Double(itemWidth * 1.34)
+      layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
       return layout
     }()
     
@@ -74,6 +75,8 @@ extension CategoryMenuViewController: UICollectionViewDataSource, UICollectionVi
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
         cell.categoryLabel.text = presenter.categories[indexPath.row]
+        let backgroundImage = UIImage(named: presenter.categories[indexPath.row])
+        cell.imageView.image = backgroundImage
         return cell
     }
     
