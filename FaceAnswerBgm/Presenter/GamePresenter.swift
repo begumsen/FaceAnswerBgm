@@ -18,6 +18,7 @@ protocol GameView: AnyObject {
     func playSoundEffect(soundUrl: URL)
     func gameOver(finalScore: String)
     func navigateToCategoryMenu()
+    func adjustTheViews(scoreView: Bool, gameView:Bool, warningLabel: Bool)
 }
 
 class GamePresenter {
@@ -45,12 +46,17 @@ class GamePresenter {
         currentQuestion = questions[questionIndex]
     }
     
+    func viewDidLoad(){
+        view?.adjustTheViews(scoreView: true, gameView: false, warningLabel: false)
+    }
+    
     func playAgain(){
         questionIndex = 0
         questions = dataSource.selectRandomQuestions(category: category)
         currentQuestion = questions[questionIndex]
         score = 0
         gameStarted()
+        view?.adjustTheViews(scoreView: true, gameView: false, warningLabel: true)
     }
     
     func selectNewCategory(){
@@ -64,6 +70,7 @@ class GamePresenter {
         view?.updateTheScore(score: "00")
         view?.updateTheTimer(timerLabel: "5s")
         showNewQuestion()
+        view?.adjustTheViews(scoreView: true, gameView: false, warningLabel: true)
     }
     
     func showNewQuestion(){
@@ -79,9 +86,11 @@ class GamePresenter {
                 
             } else {
                 self.timer?.invalidate()
+                self.view?.adjustTheViews(scoreView: false, gameView: true, warningLabel: true)
                 self.canSelectAnswer = false
                 self.scoreDataSource.saveNewScore(username: UserModel.shared.userName, score: self.score)
                 self.view?.gameOver(finalScore: "\(self.score)")
+               
             }
         }
         

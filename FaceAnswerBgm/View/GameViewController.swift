@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     
 
     var cameraView : CameraView!
-    
+    var circularOverlayView: CircularOverlayView!
 
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -28,25 +28,23 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var finalScoreLabel: UILabel!
     
+    @IBOutlet weak var warningLabel: UILabel!
+    
     var selectedCategory: String = ""
     var audioPlayer: AVAudioPlayer!
     lazy var presenter = GamePresenter(with:self, categorySelected: selectedCategory)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ScoreView.isHidden = true
-        GameView.isHidden = false
+        presenter.viewDidLoad()
     }
     
     @IBAction func startButtonClicked(_ sender: Any) {
         presenter.gameStarted()
-        
     }
     
     @IBAction func playAgainButtonClicked(_ sender: Any) {
         presenter.playAgain()
-        ScoreView.isHidden = true
-        GameView.isHidden = false
     }
     
     @IBAction func selectNewCategoryClicked(_ sender: Any) {
@@ -68,11 +66,21 @@ class GameViewController: UIViewController {
         cameraView.presenter = presenter
         GameView.addSubview(cameraView)
         cameraView.translatesAutoresizingMaskIntoConstraints = false
-        cameraView.bottomAnchor.constraint(equalTo: GameView.bottomAnchor, constant: +10).isActive = true
+
+        // Calculate the dimensions based on the phone's width and height
+        let cameraViewWidth: CGFloat = UIScreen.main.bounds.width - 40
+        let cameraViewHeight: CGFloat = UIScreen.main.bounds.height * 0.5
+
+        cameraView.bottomAnchor.constraint(equalTo: GameView.bottomAnchor).isActive = true
         cameraView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cameraView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        cameraView.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        cameraView.widthAnchor.constraint(equalToConstant: cameraViewWidth).isActive = true
+        cameraView.heightAnchor.constraint(equalToConstant: cameraViewHeight).isActive = true
         cameraView.beginSession()
+
+        circularOverlayView = CircularOverlayView(frame: CGRect(x: 0, y: 0, width: cameraViewWidth * 0.8, height: cameraViewHeight * 0.8))
+        circularOverlayView.center = GameView.center
+        circularOverlayView.backgroundColor = .clear
+        GameView.addSubview(circularOverlayView)
     }
     /*
     // MARK: - Navigation
@@ -87,10 +95,14 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: GameView {
+   
+    func adjustTheViews(scoreView: Bool, gameView: Bool, warningLabel: Bool) {
+        self.warningLabel.isHidden = warningLabel
+        self.GameView.isHidden = gameView
+        self.ScoreView .isHidden = scoreView
+    }
     
     func gameOver(finalScore: String) {
-        GameView.isHidden = true
-        ScoreView.isHidden = false
         finalScoreLabel.text = "Score: " + finalScore
     }
     

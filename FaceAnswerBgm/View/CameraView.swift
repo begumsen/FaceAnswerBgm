@@ -11,6 +11,22 @@ import AVFoundation
 import CoreVideo
 import MLKit
 
+
+class CircularOverlayView: UIView {
+    override func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+
+        let circleRect = bounds.insetBy(dx: 50, dy: 50)
+        let path = UIBezierPath(ovalIn: circleRect)
+        context.addPath(path.cgPath)
+        context.setLineWidth(5)
+        context.setStrokeColor(UIColor.green.cgColor)
+        context.setLineDash(phase: 0, lengths: [10,10])
+        context.strokePath()
+    }
+}
+
+
 class CameraView: UIView {
 
     /*
