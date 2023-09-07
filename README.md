@@ -1,6 +1,6 @@
 # FaceAnwer
 
-Welcome to the setup guide for the FaceAnswer which is a quiz app implemented using Google MLKit. Follow these steps to seamlessly integrate the feature into your Swift project, designed with SwiftUIKit and Storyboard for the user interface.
+This open-source iOS quiz app offers a unique twist on answer selection using facial tilts. Built with Swift and following the MVP (Model-View-Presenter) pattern, it utilizes Google's ML Kit for Face Detection for interactive face tilt-based answers and CoreData for efficient local data storage. Follow these steps to seamlessly integrate the feature into your Swift project, designed with SwiftUIKit and Storyboard for the user interface.
 
 **IMPORTANT**: To achieve accurate results, it's essential to have direct and consistent light on the face.
 
@@ -36,7 +36,12 @@ Run the below to install the Google ML Kit Face Detection dependency.
 **IMPORTANT**: From now on, always use the .xcworkspace file to open your project.
 
 
-
+## Features
+Face Tilt Interaction: Users choose answers by tilting their faces using Google ML Kit.
+MVP Architecture: A well-structured Swift codebase following the MVP pattern.
+CoreData Database: Efficient local data storage and retrieval.
+Real-time Feedback: Instant feedback on face tilt alignment with correct answers.
+Leaderboards: Compete for top scores and achievements.
     
 ## Demo
 
